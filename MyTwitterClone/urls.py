@@ -32,7 +32,7 @@ urlpatterns = [
     path('feed/', feed, name='feed'),
 
     # Api
-    path('api/add_cik', api_add_cik, name='api_add_cik'),
+    path('api/add_cik/', api_add_cik, name='api_add_cik'),
 
     # Admin
     path('admin/', admin.site.urls),
