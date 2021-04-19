@@ -18,7 +18,7 @@ from django.urls import path
 from django.contrib.auth import views
 from apps.core.views import frontpage, signup
 from apps.feed.views import feed
-
+from apps.feed.api import api_add_cik
 urlpatterns = [
 
     #
@@ -28,7 +28,11 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(template_name='core/login.html'), name='login'),
     #
 
+    # Feed
     path('feed/', feed, name='feed'),
+
+    # Api
+    path('api/add_cik', api_add_cik, name='api_add_cik'),
 
     # Admin
     path('admin/', admin.site.urls),
