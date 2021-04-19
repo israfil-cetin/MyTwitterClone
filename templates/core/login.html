@@ -5,6 +5,14 @@
         <div class="column">
             <div class="column is-12">
                 <h1 class="title">Log in</h1>
+
+                <form method="post" action=".">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button class="button is-success" type="submit">Log in</button>
+                </form>
             </div>
         </div>
     </div>
