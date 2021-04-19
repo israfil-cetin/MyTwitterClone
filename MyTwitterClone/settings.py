@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 LOGOUT_REDIRECT_URL = 'frontpage'
 LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'feed'
 
 
 # Application definition
