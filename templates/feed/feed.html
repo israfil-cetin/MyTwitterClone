@@ -59,6 +59,22 @@
                         this.ciks.unshift(cik);
 
                         // Send to Backend
+
+                        fetch('/api/add_cik/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        },
+                        credentials: 'same-origin',
+                        body: JSON.stringify(cik)
+                        })
+                        .then((response) => {
+                        console.log(response);
+                        })
+                        .catch((error) => {
+                        console.log(error);
+                        });
                     }
 
                     this.body = '';
