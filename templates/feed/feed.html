@@ -22,7 +22,9 @@
 
                 <div class="wrapper-ciks">
                     <div class="cik" v-for="cik in ciks">
+                        <p class="name">[[ cik.user ]]</p>
                         <p>[[ cik.body ]]</p>
+                        <p class="info">[[ cik.created_at ]]</p>
                     </div>
                 </div>
             </div>
@@ -35,16 +37,31 @@
     <script>
         new Vue({
             el: '#feedapp',
-            delimeters: ['[[', ']]'],
-            data (){
+            delimiters: ['[[', ']]'],
+            data () {
                 return {
                     ciks: [],
-                    body: ''
+                    body: '',
+                    user: '{{ request.user.username }}',
+                    created_at: 'Now'
                 }
             },
             methods: {
-                submitcik() {
+                submitcik(){
                     console.log('submitcik');
+                    if (this.body.length > 0 ) {
+                        var cik = {
+                            'body': this.body,
+                            'user': this.user,
+                            'created_at': this.created_at,
+                        };
+
+                        this.ciks.unshift(cik);
+
+                        // Send to Backend
+                    }
+
+                    this.body = '';
                 }
             }
         })
