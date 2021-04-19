@@ -18,4 +18,4 @@ def signup(request):
             return redirect('frontpage')
     else:
         form = UserCreationForm()
-    return render(request, 'core/sigup.html', {'form': form})
+    return render(request, 'core/signup.html', {'form': form})
