@@ -21,6 +21,14 @@
                 </div>
 
                 <div class="wrapper-ciks">
+                    {% for cik in ciks %}
+                        <div class="cik">
+                            <p class="name">{{ cik.created_by.username }}</p>
+                            <p>{{ cik.body }}</p>
+                            <p class="info"> {{ cik.created_at }}</p>
+                        </div>
+                    {% endfor %}
+
                     <div class="cik" v-for="cik in ciks">
                         <p class="name">[[ cik.user ]]</p>
                         <p>[[ cik.body ]]</p>
