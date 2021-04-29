@@ -18,3 +18,11 @@ def follow_user(request, username):
     request.user.userprofile.follows.add(user.userprofile)
 
     return redirect('userprofile', username=username)
+
+@login_required
+def unfollow_user(request, username):
+    user = get_object_or_404(User, username=username)
+
+    request.user.userprofile.follows.remove(user.userprofile)
+
+    return redirect('userprofile', username=username)
