@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views
 from apps.core.views import frontpage, signup
-from apps.feed.views import feed
+from apps.feed.views import feed, search
 from apps.feed.api import api_add_cik
 urlpatterns = [
 
@@ -30,6 +30,7 @@ urlpatterns = [
 
     # Feed
     path('feed/', feed, name='feed'),
+    path('search/', search, name='search'),
 
     # Api
     path('api/add_cik/', api_add_cik, name='api_add_cik'),
