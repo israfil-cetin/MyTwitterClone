@@ -10,6 +10,10 @@
 
                 <p>Followers: {{ user.userprofile.followed_by.count }}</p>
                 <p>Follows: {{ user.userprofile.follows.count }}</p>
+
+                {% if user != request.user %}
+                    <a href="{% url 'follow_user' user.username %}" class="button is-success">Follow</a>
+                {% endif %}
             </div>
         </div>
 

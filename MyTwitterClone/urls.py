@@ -19,7 +19,7 @@ from django.contrib.auth import views
 from apps.core.views import frontpage, signup
 from apps.feed.views import feed, search
 from apps.feed.api import api_add_cik
-from apps.userprofile.views import userprofile
+from apps.userprofile.views import userprofile, follow_user
 
 urlpatterns = [
 
@@ -33,7 +33,8 @@ urlpatterns = [
     # Feed
     path('feed/', feed, name='feed'),
     path('search/', search, name='search'),
-    path('u/<str:username>', userprofile, name='userprofile'),
+    path('u/<str:username>/', userprofile, name='userprofile'),
+    path('u/<str:username>/follow/', follow_user, name='follow_user'),
 
     # Api
     path('api/add_cik/', api_add_cik, name='api_add_cik'),
