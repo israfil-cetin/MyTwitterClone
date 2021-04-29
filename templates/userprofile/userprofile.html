@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <h1 class="title">{{ user.username }}</h1>
+
+                <p>Followers: {{ user.userprofile.followed_by.count }}</p>
+                <p>Follows: {{ user.userprofile.follows.count }}</p>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column is-8">
+                <div class="wrapper-ciks">
+                    {% for cik in user.ciks.all %}
+                        <div class="cik">
+                            <p class="name">{{ cik.created_by.username }}</p>
+                            <p>{{ cik.body }}</p>
+                            <p class="info">{{ cik.created_at|naturaltime }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
