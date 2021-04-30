@@ -1,16 +1,16 @@
 # MyTwitterClone
 
-##### Virtual Env. Kurulumu Windows
+### Virtual Env. Kurulumu Windows
 
 python -m venv venv
 
 venv\Scripts\activate
 
-##### Paketlerin kurulumu
+### Paketlerin kurulumu
 
 pip install -r requirements.txt
 
-##### Kurulum
+### Kurulum
 
 python manage.py makemigrations
 
@@ -18,12 +18,12 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-##### Django secret-key
+### Django secret-key
 
 Python terminalinde 
 
-`from django.core.management.utils import get_random_secret_key
-`
+`from django.core.management.utils import get_random_secret_key`
+
 `get_random_secret_key()`
 
 Üretilen keyi settings.py dosyasında SECRET_KEY karşısına yazmalı yada ortam değişkeni olarak eklemelisiniz.
