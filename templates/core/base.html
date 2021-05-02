@@ -35,6 +35,7 @@
                     <a href="{% url 'search' %}" class="navbar-item">Search</a>
                     <a href="{% url 'feed' %}" class="navbar-item">Feed</a>
                     <a href="{% url 'userprofile' request.user.username %}" class="navbar-item">Profile</a>
+                    <a href="{% url 'edit_profile' %}" class="navbar-item">Edit profile</a>
                 {% endif %}
                 <div class="navbar-item">
                     <div class="buttons">
