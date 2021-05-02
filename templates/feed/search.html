@@ -30,7 +30,7 @@
                 </form>
                 <div class="search-results">
                     {% for user in users %}
-                        <p>{{ user.username }}</p>
+                        <p><a href="{% url 'userprofile' user.username %}">{{ user.username }}</a></p>
                     {% endfor %}
                 </div>
             </div>
