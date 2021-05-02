@@ -19,7 +19,7 @@ from django.contrib.auth import views
 from apps.core.views import frontpage, signup
 from apps.feed.views import feed, search
 from apps.feed.api import api_add_cik
-from apps.userprofile.views import userprofile, follow_user, unfollow_user
+from apps.userprofile.views import userprofile, follow_user, unfollow_user, followers, follows
 
 urlpatterns = [
 
@@ -34,6 +34,8 @@ urlpatterns = [
     path('feed/', feed, name='feed'),
     path('search/', search, name='search'),
     path('u/<str:username>/', userprofile, name='userprofile'),
+    path('u/<str:username>/followers/', followers, name='followers'),
+    path('u/<str:username>/follows/', follows, name='follows'),
     path('u/<str:username>/follow/', follow_user, name='follow_user'),
     path('u/<str:username>/unfollow/', unfollow_user, name='unfollow_user'),
 
