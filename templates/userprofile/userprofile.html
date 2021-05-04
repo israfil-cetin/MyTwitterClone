@@ -32,9 +32,26 @@
                 <div class="wrapper-ciks">
                     {% for cik in user.ciks.all %}
                         <div class="cik">
-                            <p class="name">{{ cik.created_by.username }}</p>
-                            <p>{{ cik.body }}</p>
-                            <p class="info">{{ cik.created_at|naturaltime }}</p>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64">
+                                        {% if user.userprofile.avatar %}
+                                            <img src="{{ user.userprofile.avatar.url }}">
+                                        {% endif %}
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>{{ cik.created_by.username }}</strong>
+                                            <small>{{ cik.created_at|naturaltime }}</small>
+                                            <br>
+                                            {{ cik.body }}
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     {% endfor %}
                 </div>
