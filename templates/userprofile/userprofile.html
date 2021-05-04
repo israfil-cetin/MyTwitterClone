@@ -8,6 +8,12 @@
             <div class="column is-12">
                 <h1 class="title">{{ user.username }}</h1>
 
+                {% if user.userprofile.avatar %}
+                    <figure class="image is-128x128">
+                        <img src="{{ user.userprofile.avatar.url }}">
+                    </figure>
+                {% endif %}
+
                 <p><a href="{% url 'followers' user.username %}"> Followers: {{ user.userprofile.followed_by.count }}</a></p>
                 <p><a href="{% url 'follows' user.username %}">Follows: {{ user.userprofile.follows.count }}</a></p>
 
