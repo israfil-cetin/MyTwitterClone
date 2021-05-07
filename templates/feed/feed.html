@@ -24,16 +24,46 @@
                 <div class="wrapper-ciks">
 
                     <div class="cik" v-for="cik in ciks">
-                        <p class="name">[[ cik.user ]]</p>
-                        <p>[[ cik.body ]]</p>
-                        <p class="info">[[ cik.created_at ]]</p>
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-64x64">
+                                    <img :src="cik.avatar">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>[[ cik.user ]]</strong>
+                                        <small>[[ cik.created_at ]]</small>
+                                        <br>
+                                        [[ cik.body ]]
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
                     </div>
 
                     {% for cik in ciks %}
                         <div class="cik">
-                            <p class="name">{{ cik.created_by.username }}</p>
-                            <p>{{ cik.body }}</p>
-                            <p class="info"> {{ cik.created_at | naturalday  }}</p>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-64x64">
+                                        {% if cik.created_by.userprofile.avatar %}
+                                            <img src="{{ cik.created_by.userprofile.avatar.url }}">
+                                        {% endif %}
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>{{ cik.created_by.username }}</strong>
+                                            <small>{{ cik.created_at|naturaltime }}</small>
+                                            <br>
+                                            {{ cik.body }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     {% endfor %}
 
@@ -55,7 +85,8 @@
                     ciks: [],
                     body: '',
                     user: '{{ request.user.username }}',
-                    created_at: 'Now'
+                    created_at: 'Now',
+                    avatar: '{% if request.user.userprofile.avatar %}{{ request.user.userprofile.avatar.url }}{% endif %}'
                 }
             },
             methods: {
@@ -66,6 +97,7 @@
                             'body': this.body,
                             'user': this.user,
                             'created_at': this.created_at,
+                            'avatar': this.avatar
                         };
 
                         this.ciks.unshift(cik);
