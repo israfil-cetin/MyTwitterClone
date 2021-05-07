@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from apps.core.views import frontpage, signup
 from apps.feed.views import feed, search
-from apps.feed.api import api_add_cik
+from apps.feed.api import api_add_cik, api_add_like
 from apps.userprofile.views import userprofile, follow_user, unfollow_user, followers, follows, edit_profile
 
 urlpatterns = [
@@ -44,6 +44,7 @@ urlpatterns = [
 
                   # Api
                   path('api/add_cik/', api_add_cik, name='api_add_cik'),
+                  path('api/api_add_like/', api_add_like, name='api_add_like'),
 
                   # Admin
                   path('admin/', admin.site.urls),
