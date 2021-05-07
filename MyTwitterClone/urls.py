@@ -44,7 +44,7 @@ urlpatterns = [
 
                   # Api
                   path('api/add_cik/', api_add_cik, name='api_add_cik'),
-                  path('api/api_add_like/', api_add_like, name='api_add_like'),
+                  path('api/add_like/', api_add_like, name='api_add_like'),
 
                   # Admin
                   path('admin/', admin.site.urls),

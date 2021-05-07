@@ -15,6 +15,14 @@ def feed(request):
         userids.append(users.user.id)
 
     ciks = Cik.objects.filter(created_by_id__in=userids)
+
+    for cik in ciks:
+        likes = cik.likes.filter(created_by_id=request.user.id)
+        if likes.count() > 0:
+            cik.liked = True
+        else:
+            cik.liked = False
+
     return render(request, 'feed/feed.html', {'ciks': ciks})
 
 

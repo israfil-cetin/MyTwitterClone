@@ -19,7 +19,7 @@ def api_add_like(request):
     cik_id = data['cik_id']
 
     if not Like.objects.filter(cik_id=cik_id).filter(created_by=request.user).exists():
-        like = Like.objects.created(cik_id=cik_id, created_by=request.user)
+        like = Like.objects.create(cik_id=cik_id, created_by=request.user)
 
 
 
