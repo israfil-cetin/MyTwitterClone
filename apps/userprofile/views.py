@@ -7,8 +7,18 @@ from .forms import UserProfileForm
 
 def userprofile(request, username):
     user = get_object_or_404(User, username=username)
+    ciks = user.ciks.add()
+
+    for cik in ciks:
+        likes = cik.likes.filter(created_by_id=request.user.id)
+        if likes.count() > 0:
+            cik.liked = True
+        else:
+            cik.liked = False
+
     context = {
-        'user': user
+        'user': user,
+        'ciks': ciks
     }
     return render(request, 'userprofile/userprofile.html', context)
 
