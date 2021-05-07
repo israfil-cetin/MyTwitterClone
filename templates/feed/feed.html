@@ -37,6 +37,11 @@
                                         <small>[[ cik.created_at ]]</small>
                                         <br>
                                         [[ cik.body ]]
+                                        <br>
+                                        <a @click="likeCik({{ cik.id }})" v-if = "!liked_ciks.includes({{ cik.id }})">Like</a>
+                                        <span v-if="liked_ciks.includes({{ cik.id }})">Liked</span>
+                                        <small id="likes-{{ cik.id }}">{{ cik.likes.count }} likes</small>
+
                                     </p>
                                 </div>
                             </div>
@@ -114,10 +119,10 @@
                         console.log(response);
                         })
                         .catch((error) => {
-                        console.log(error);})
+                        console.log(error);});
 
-                        const el = document.getElementById('likes-'+ cik_id);
-                        const likes = parseInt(el.innerHTML.split(' ')[0])
+                        const el = document.getElementById('likes-' + cik_id);
+                        const likes = parseInt(el.innerHTML.split(' ')[0] + 1);
                         el.innerHTML = likes + ' likes';
                 },
                 submitcik(){
