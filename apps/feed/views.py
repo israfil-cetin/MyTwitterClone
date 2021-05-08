@@ -32,10 +32,14 @@ def search(request):
 
     if len(query) > 0:
         users = User.objects.filter(username__icontains=query)
+        ciks = Cik.objects.filter(body__icontains=query)
     else:
         users = []
+        ciks = []
+
     context = {
         'query': query,
         'users': users,
+        'ciks': ciks
     }
     return render(request, 'feed/search.html', context)
