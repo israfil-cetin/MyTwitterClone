@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 
 
+    'apps.chat',
     'apps.core',
     'apps.userprofile',
     'apps.feed',
