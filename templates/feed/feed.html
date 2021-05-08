@@ -61,7 +61,7 @@
                                 <div class="media-content">
                                     <div class="content">
                                         <p>
-                                            <strong>{{ cik.created_by.username }}</strong>
+                                            <strong><a href="{% url 'userprofile' cik.created_by.username %}">{{ cik.created_by.username }}</a></strong>
                                             <small>{{ cik.created_at|naturaltime }}</small>
                                             <br>
                                             {{ cik.body }}
