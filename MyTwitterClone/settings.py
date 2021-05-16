@@ -27,7 +27,7 @@ SECRET_KEY = str(os.environ.get('django_secret_key'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["my-app-cetin.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 LOGOUT_REDIRECT_URL = 'frontpage'
 LOGIN_URL = 'login'
