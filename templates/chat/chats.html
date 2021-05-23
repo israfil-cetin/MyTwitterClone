@@ -13,7 +13,9 @@
                         <div class="chats-list-item">
                             {% for user in chat.users.all %}
                                 {% if user != request.user %}
-                                    <p>{{ user.username }} - {{ chat.modified_at|naturaltime }}<</p>
+                                    <a href="{% url 'chat' user.id %}">
+                                    <p>{{ user.username }} - {{ chat.modified_at|naturaltime }}</p>
+                                    </a>
                                 {% endif %}
                             {% endfor %}
                         </div>
