@@ -18,6 +18,8 @@
                 <p><a href="{% url 'follows' user.username %}">Follows: {{ user.userprofile.follows.count }}</a></p>
 
                 {% if user != request.user %}
+                    <a href="{% url 'chat' user.id %}" class="button is-info">Send Message</a>
+
                     {% if request.user.userprofile in user.userprofile.followed_by.all %}
                         <a href="{% url 'unfollow_user' user.username %}" class="button is-success">Unfollow</a>
                     {% else %}
