@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Chat(models.Model):
-    users = models.ManyToManyField(User, related_name='chat')
+    users = models.ManyToManyField(User, related_name='chats')
     modified_at = models.DateTimeField(auto_now=True)
 
     class Meta:
