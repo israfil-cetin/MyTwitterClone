@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from apps.chat.views import chats, chat
 from apps.core.views import frontpage, signup
+from apps.notification.views import notifications
 from apps.feed.views import feed, search
 from apps.feed.api import api_add_cik, api_add_like
 from apps.chat.api import api_add_message
@@ -38,6 +39,7 @@ urlpatterns = [
     path('feed/', feed, name='feed'),
     path('search/', search, name='search'),
     path('edit_profile/', edit_profile, name='edit_profile'),
+    path('notifications/', notifications, name='notifications'),
     path('chats/', chats, name='chats'),
     path('chats/<int:user_id>/', chat, name='chat'),
     path('u/<str:username>/', userprofile, name='userprofile'),
